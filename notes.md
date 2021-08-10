@@ -1,6 +1,9 @@
 # User Model
 
 - username
+- email
+- password
+
 
 # Post Model
 
