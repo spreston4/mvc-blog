@@ -41,5 +41,12 @@
         <p class="uk-text-center text-white">© Sam Preston</p>
 
     </footer>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{else}}
+    <script src="/js/login.js"></script>
+    {{/if}}
+
 </body>
 </html>
