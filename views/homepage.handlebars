@@ -1,0 +1,20 @@
+{{#each posts as |post| }}
+
+<div class="uk-card uk-card-default uk-width-auto uk-margin-large-top uk-margin-large-left uk-margin-large-right">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">{{post.title}}</h3>
+                        <p class="uk-text-meta uk-margin-remove-top">Posted by USER on DATE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-card-body">
+                <p>{{post.content}}</p>
+            </div>
+            <div class="uk-card-footer">
+                <p class="uk-text-meta uk-margin-remove-top">Last edited by USER on DATE</p>
+            </div>
+        </div>
+
+{{/each}}

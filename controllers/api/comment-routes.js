@@ -96,7 +96,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete comment
-router.delete('./:id', (req, res) => {
+router.delete('./:id', async (req, res) => {
 
     try {
         const commentData = await Comment.destroy({
