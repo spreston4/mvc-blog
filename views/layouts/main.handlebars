@@ -17,8 +17,8 @@
         <nav class="uk-navbar-container " uk-navbar>
             <div class="uk-navbar-left uk-padding">
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#"><span class="uk-text-large">Home</span></a></li>
-                    <li class="uk-active"><a href="#"><span class="uk-text-large">Dashboard</span></a>
+                    <li class="uk-active"><a href="/"><span class="uk-text-large">Home</span></a></li>
+                    <li class="uk-active"><a href="/dashboard"><span class="uk-text-large">Dashboard</span></a>
                 </ul>
             </div>
             <div class="uk-navbar-right uk-padding">
@@ -26,7 +26,7 @@
                     {{#if logged_in}}
                     <li class="uk-active"><a href="#" id="logout"><span class="uk-text-large">Logout</span></a></li>
                     {{else}}
-                    <li class="uk-active"><a href="#"><span class="uk-text-large" id="">Login</span></a></li>
+                    <li class="uk-active"><a href="/login"><span class="uk-text-large" id="">Login</span></a></li>
                     {{/if}}
                 </ul>
             </div>

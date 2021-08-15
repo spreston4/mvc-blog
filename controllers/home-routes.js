@@ -9,17 +9,11 @@ router.get('/', withAuth, async (req, res) => {
     const postData = await Post.findAll({
       include: [{ model: User, attributes: ['username'] }]
     });
+
     const posts = postData.map((project) => project.get({ plain: true }));
 
-    // const commentData = await Comment.findAll({
-    // });
-    // const comments = commentData.map((project) => project.get({ plain: true }));
-
     res.render('homepage', {
-      // users,
       posts,
-      // comments,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -36,5 +30,33 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/dashboard', async (req, res) => {
+
+  try {
+    if (!req.session.logged_in) {
+      res.redirect('/login');
+      return;
+    }
+
+    const postData = await Post.findAll({
+      where: {
+        id: req.session.user_id
+      },
+      include: [{ model: User, attributes: ['username']}]
+    });
+
+    const posts = postData.map((project) => project.get({ plain: true }));
+
+    res.render('dashboard', {
+      posts,
+      logged_in: req.session.logged_in,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
