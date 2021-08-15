@@ -33,6 +33,7 @@
 </div>
 {{/each}}
 
+{{#if logged_in}}
 <div class="uk-flex uk-flex-around uk-width-auto uk-margin-large-top uk-margin-bottom-large uk-margin-large-left uk-margin-large-right">
     <div class="uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1">
         <h3> Add a Comment </h3>
@@ -50,5 +51,6 @@
         </form>
     </div>
 </div>
+{{/if}}
 
 <script src="/js/new-comment.js"></script>
