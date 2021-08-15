@@ -43,7 +43,7 @@ router.get('/dashboard', async (req, res) => {
       where: {
         id: req.session.user_id
       },
-      include: [{ model: User, attributes: ['username']}]
+      include: [{ model: User, attributes: ['username'] }]
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));
@@ -61,9 +61,9 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
-router.get('/newpost', async (req,res) => {
+router.get('/newpost', async (req, res) => {
 
-  try{
+  try {
     if (!req.session.logged_in) {
       res.redirect('/login');
       return;
@@ -74,7 +74,28 @@ router.get('/newpost', async (req,res) => {
     res.render('newpost', {
       logged_in: req.session.logged_in,
       dashboard: req.session.dashboard,
-      user_id: req.session.user_id 
+      user_id: req.session.user_id
+    })
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/editpost', async (req, res) => {
+
+  try {
+    if (!req.session.logged_in) {
+      res.redirect('/login');
+      return;
+    }
+
+    req.session.dashboard = true;
+
+    res.render('editpost', {
+      logged_in: req.session.logged_in,
+      dashboard: req.session.dashboard,
+      user_id: req.session.user_id
     })
 
   } catch (err) {
