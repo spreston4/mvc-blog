@@ -83,6 +83,31 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Get post to edit 
+router.get('/editpost/:id', async (req, res) => {
+
+    try {
+        if (!req.session.logged_in) {
+            res.redirect('/');
+            return;
+          }
+
+          const postData = await Post.findByPk(req.params.id);
+          const post = postData.get({ plain: true });
+
+          req.session.dashboard = true;
+          res.render('editpost', {
+              post,
+              logged_in: req.session.logged_in,
+              dashboard: req.session.dashboard, 
+              post_id: req.params.id
+          });
+
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
 // Update post
 router.put('/:id', async (req, res) => {
 
@@ -95,7 +120,6 @@ router.put('/:id', async (req, res) => {
             {
                 where: {
                     id: req.params.id,
-                    user_id: req.session.id,
                 },
             }
         );
