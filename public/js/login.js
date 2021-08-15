@@ -23,8 +23,8 @@ const loginFormHandler = async (event) => {
 };
 
 const signupFormHandler = async (event) => {
+  
   event.preventDefault();
-  console.log('signup attempted');
 
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();

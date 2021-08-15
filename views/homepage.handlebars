@@ -5,7 +5,7 @@
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom">{{post.title}}</h3>
-                        <p class="uk-text-meta uk-margin-remove-top">Posted by USER on DATE</p>
+                        <p class="uk-text-meta uk-margin-remove-top">Posted by {{post.user.username}} on {{format_date post.createdAt}}</p>
                     </div>
                 </div>
             </div>
@@ -13,7 +13,7 @@
                 <p>{{post.content}}</p>
             </div>
             <div class="uk-card-footer">
-                <p class="uk-text-meta uk-margin-remove-top">Last edited by USER on DATE</p>
+                <p class="uk-text-meta uk-margin-remove-top">Last edited by {{post.user.username}} on {{format_date post.updatedAt}}</p>
             </div>
         </div>
 
