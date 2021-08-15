@@ -137,7 +137,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete post
-router.delete('/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
 
     try {
         const postData = await Post.destroy({

@@ -23,6 +23,9 @@ const editPostHandler = async (event) => {
     }
 };
 
+
+
 document
     .querySelector('#edit-post-form')
     .addEventListener('submit', editPostHandler);
+
