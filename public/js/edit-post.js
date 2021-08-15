@@ -1,6 +1,7 @@
 const editPostHandler = async (event) => {
 
     event.preventDefault();
+    console.log('edit requested');
 
     const title = document.querySelector("#edit-post-title").value.trim();
     const content = document.querySelector('#edit-post-content').value.trim();
@@ -9,7 +10,7 @@ const editPostHandler = async (event) => {
     console.log(post_id);
 
     if (title && content) {
-        const response = await fetch(`/api/posts/${post_id}`, {
+        const response = await fetch(`/api/posts/edit/${post_id}`, {
             method: 'PUT',
             body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' },

@@ -109,7 +109,7 @@ router.get('/editpost/:id', async (req, res) => {
 });
 
 // Update post
-router.put('/:id', async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
 
     try {
         const postData = await Post.update(
