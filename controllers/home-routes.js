@@ -41,7 +41,7 @@ router.get('/dashboard', async (req, res) => {
 
     const postData = await Post.findAll({
       where: {
-        id: req.session.user_id
+        user_id: req.session.user_id
       },
       include: [{ model: User, attributes: ['username'] }]
     });
@@ -92,7 +92,7 @@ router.get('/editpost', async (req, res) => {
 
     req.session.dashboard = true;
 
-    res.render('editpost', {
+    res.render('newpost', {
       logged_in: req.session.logged_in,
       dashboard: req.session.dashboard,
       user_id: req.session.user_id
