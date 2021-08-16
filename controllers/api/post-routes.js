@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Get all posts
 router.get('/', async (req, res) => {
@@ -84,22 +85,16 @@ router.post('/', async (req, res) => {
 });
 
 // Get post to edit 
-router.get('/editpost/:id', async (req, res) => {
+router.get('/editpost/:id', withAuth, async (req, res) => {
 
     try {
-        if (!req.session.logged_in) {
-            res.redirect('/');
-            return;
-          }
 
           const postData = await Post.findByPk(req.params.id);
           const post = postData.get({ plain: true });
 
-          req.session.dashboard = true;
           res.render('editpost', {
               post,
               logged_in: req.session.logged_in,
-              dashboard: req.session.dashboard, 
               post_id: req.params.id
           });
 
