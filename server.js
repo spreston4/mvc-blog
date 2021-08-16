@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Require packages
@@ -15,18 +16,22 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
     secret: process.env.SECRET,
-    cookie: {},
-    resave: true,
+    cookie: { maxAge: 1000 * 60 * 5},       // Set time for cookie to expire in milliseconds. 1000 * 60 * 5 = 5 minutes.
+    rolling: true,
+    resave: true,                           // Reset cookie maxAge on every new request
     saveUnitialized: true,
     store: new SequelizeStore({
         db: sequelize,
     }),
 };
 
+app.use(cookieParser());                   // Used to enable cookie maxAge
 app.use(session(sess));
 
+// Configure helpers for use by habdlebar templates
 const hbs = exphbs.create({ helpers });
 
+// COnfigure handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
