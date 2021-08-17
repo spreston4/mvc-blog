@@ -2,7 +2,7 @@
 
 ## Description
 
-MVC Blog is a fullstack CMS-style blog application that follows the Model-View-Controller structure. Users can create accounts in order to create and edit blog posts. They can also comment on other user's blog posts. Users that are not signed-up or logged in can view blog posts and comments, but cannot create their own posts or comments. Users that are logged in, but inactive for 5 minutes or more, will be automatically logged out.
+MVC Blog is a fullstack CMS-style blog application that follows the Model-View-Controller structure. Users can create accounts in order to create, edit, and delete blog posts. They can also comment on other user's blog posts. Users that are not signed-up or logged in can view blog posts and comments, but cannot create their own posts or comments. Users that are logged in, but inactive for 5 minutes or more, will be automatically logged out.
 
 [Deployed Application](https://mvc-blog-spreston4.herokuapp.com/)
 
@@ -27,13 +27,13 @@ When the application loads, the user is presented with the home page. From the h
 
 ![Home](./public/images/home.PNG)
 
-Selecting 'Login' will direct the user to the login page where they can sign in with existing credentials. If the user does not have an existing account they can select the option to create a new account by clicking the link below the login form.
+Selecting 'Login' will direct the user to the login page where they can sign in with existing credentials. If the user does not have an existing account they can select the option to create a new account by clicking the link below the login form. Creating a new account will automatically log the user into the new account.
 
 ![Login](./public/images/login.PNG)
 
 ![Signup](./public/images/signup.PNG)
 
-Once logged in, users can view their dashboard. From the dashboard users have the option to create a new post, or edit an existing post. Users can also delte posts from the edit post page.
+Once logged in, users can view their dashboard. From the dashboard users have the option to create a new post, or edit an existing post. Users can also delete posts from the edit post page.
 
 ![Dashboard](./public/images/dashboard.PNG)
 
