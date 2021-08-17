@@ -11,9 +11,7 @@ router.get('/', async (req, res) => {
                 include: [{ model: User }, { model: Comment }],
             },
             {
-                where: {
-                    user_id: req.session.id,
-                },
+                where: { user_id: req.session.id },
             }
         );
 
@@ -47,7 +45,7 @@ router.get('/:id', async (req, res) => {
             include: [{ model: User, attributes: ['username'] }]
         });
 
-        const comments = commentData.map((comment) => comment.get({ plain: true}));
+        const comments = commentData.map((comment) => comment.get({ plain: true }));
 
         if (!postData) {
             res.status(404).json({ message: 'No post found with that id!' });
@@ -88,15 +86,14 @@ router.post('/', async (req, res) => {
 router.get('/editpost/:id', withAuth, async (req, res) => {
 
     try {
+        const postData = await Post.findByPk(req.params.id);
+        const post = postData.get({ plain: true });
 
-          const postData = await Post.findByPk(req.params.id);
-          const post = postData.get({ plain: true });
-
-          res.render('editpost', {
-              post,
-              logged_in: req.session.logged_in,
-              post_id: req.params.id
-          });
+        res.render('editpost', {
+            post,
+            logged_in: req.session.logged_in,
+            post_id: req.params.id
+        });
 
     } catch (err) {
         res.status(500).json(err);

@@ -1,3 +1,5 @@
+// These routes not currently used, available for future updates to comment functionality
+
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 

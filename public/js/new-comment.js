@@ -1,4 +1,5 @@
-const newCommentHandler = async(event) => {
+// Create a new comment from the new comment form on a post page
+const newCommentHandler = async (event) => {
 
     event.preventDefault();
 
@@ -10,7 +11,7 @@ const newCommentHandler = async(event) => {
         const response = await fetch('/api/comments/', {
             method: 'POST',
             body: JSON.stringify({ content, post_id }),
-            headers: { 'Content-Type': 'application/json '},
+            headers: { 'Content-Type': 'application/json ' },
         });
 
         if (response.ok) {

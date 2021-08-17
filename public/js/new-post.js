@@ -1,7 +1,7 @@
+// Create a new post from the new post page
 const newPostHandler = async (event) => {
 
     event.preventDefault();
-    console.log(event);
 
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();

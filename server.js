@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
     secret: process.env.SECRET,
-    cookie: { maxAge: 1000 * 60 * 5},       // Set time for cookie to expire in milliseconds. 1000 * 60 * 5 = 5 minutes.
+    cookie: { maxAge: 1000 * 60 * 5 },       // Set time for cookie to expire in milliseconds. 1000 * 60 * 5 = 5 minutes.
     rolling: true,
     resave: true,                           // Reset cookie maxAge on every new request
     saveUnitialized: true,

@@ -1,3 +1,4 @@
+// Delete a post from the delete post button on the edit post form/page
 const deletePostHandler = async (event) => {
 
     event.preventDefault();

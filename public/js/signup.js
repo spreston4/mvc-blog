@@ -1,3 +1,4 @@
+// Create new users from the signup page
 const signupFormHandler = async (event) => {
 
     event.preventDefault();

@@ -1,4 +1,7 @@
+<!-- Display Post -->
+
 <div class="uk-card uk-card-default uk-width-auto uk-margin-large-top uk-margin-large-left uk-margin-large-right">
+    
     <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-expand">
@@ -8,14 +11,20 @@
             </div>
         </div>
     </div>
+
     <div class="uk-card-body">
         <p>{{post.content}}</p>
     </div>
+
     <div class="uk-card-footer">
         <p class="uk-text-meta uk-margin-remove-top">Last edited by {{post.user.username}} on {{format_date
             post.updatedAt}}</p>
     </div>
+
 </div>
+
+
+<!-- Display Comments -->
 
 {{#each comments as |comment|}}
 <div class="uk-card uk-card-default uk-width-auto uk-margin-top uk-margin-large-left uk-margin-large-right">
@@ -33,15 +42,20 @@
 </div>
 {{/each}}
 
+
+<!-- Display add comment form if user is logged in -->
+
 {{#if logged_in}}
-<div class="uk-flex uk-flex-around uk-width-auto uk-margin-large-top uk-margin-bottom-large uk-margin-large-left uk-margin-large-right">
+<div
+    class="uk-flex uk-flex-around uk-width-auto uk-margin-large-top uk-margin-bottom-large uk-margin-large-left uk-margin-large-right">
     <div class="uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1">
         <h3> Add a Comment </h3>
 
         <form id="new-comment-form" class="uk-width-1-2">
 
             <div class="uk-margin">
-                <textarea class="uk-textarea" rows="5" placeholder="Content" id="comment-content" data-post_id="{{post.id}}"></textarea>
+                <textarea class="uk-textarea" rows="5" placeholder="Content" id="comment-content"
+                    data-post_id="{{post.id}}"></textarea>
             </div>
 
             <div class="uk-margin">
@@ -52,5 +66,6 @@
     </div>
 </div>
 {{/if}}
+
 
 <script src="/js/new-comment.js"></script>

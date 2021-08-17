@@ -1,13 +1,11 @@
+// Edit post title & content from the edit post form on the edit post page
 const editPostHandler = async (event) => {
 
     event.preventDefault();
-    console.log('edit requested');
 
     const title = document.querySelector("#edit-post-title").value.trim();
     const content = document.querySelector('#edit-post-content').value.trim();
     const post_id = document.querySelector('#edit-post-form').dataset.post_id;
-
-    console.log(post_id);
 
     if (title && content) {
         const response = await fetch(`/api/posts/edit/${post_id}`, {
@@ -23,8 +21,6 @@ const editPostHandler = async (event) => {
         }
     }
 };
-
-
 
 document
     .querySelector('#edit-post-form')
