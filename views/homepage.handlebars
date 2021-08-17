@@ -2,18 +2,18 @@
 
 {{#each posts as |post| }}
 
-<a href="/api/posts/{{post.id}}">
-    <div class="uk-card uk-card-default uk-width-auto uk-margin-large-top uk-margin-large-left uk-margin-large-right">
-        <div class="uk-card-header">
-            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                    <h3 class="uk-card-title uk-margin-remove-bottom">{{post.title}}</h3>
-                    <p class="uk-text-meta uk-margin-remove-top">Posted by {{post.user.username}} on {{format_date
-                        post.createdAt}}</p>
+<div class="columns is-centered mt-5">
+            <article class="panel is-info column is-three-fifths">
+                <p class="panel-heading">
+                    {{post.title}}
+                </p>
+                <p class="panel-block pt-3 pb-3">
+                    Posted by {{post.user.username}} on {{format_date post.createdAt}}
+                  </p>
+                <div class="control mt-3 mb-0 ">
+                    <a class="button is-info" href="/api/posts/{{post.id}}">View Post</a>
                 </div>
-            </div>
+            </article>
         </div>
-    </div>
-</a>
 
 {{/each}}

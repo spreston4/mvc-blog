@@ -1,69 +1,64 @@
 <!-- Display Post -->
 
-<div class="uk-card uk-card-default uk-width-auto uk-margin-large-top uk-margin-large-left uk-margin-large-right">
-    
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">{{post.title}}</h3>
-                <p class="uk-text-meta uk-margin-remove-top">Posted by {{post.user.username}} on {{format_date
-                    post.createdAt}}</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="uk-card-body">
-        <p>{{post.content}}</p>
-    </div>
-
-    <div class="uk-card-footer">
-        <p class="uk-text-meta uk-margin-remove-top">Last edited by {{post.user.username}} on {{format_date
-            post.updatedAt}}</p>
-    </div>
-
+<div class="columns is-centered mt-5">
+    <article class="panel is-info column is-three-fifths">
+        <p class="panel-heading">
+            {{post.title}}
+        </p>
+        <p class="panel-tabs pt-3 pb-3">
+            Posted by {{post.user.username}} on {{format_date post.createdAt}}. Last edited on {{format_date
+            post.updatedAt}}.
+        </p>
+        <p class="panel-block">
+            {{post.content}}
+        </p>
+    </article>
 </div>
 
 
 <!-- Display Comments -->
 
-{{#each comments as |comment|}}
-<div class="uk-card uk-card-default uk-width-auto uk-margin-top uk-margin-large-left uk-margin-large-right">
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-expand">
-                <p class="uk-text-meta uk-margin-remove-top">Comment by {{comment.user.username}} on {{format_date
-                    comment.createdAt}}</p>
-            </div>
+<div class="columns is-centered mt-5">
+    <article class="panel is-info column is-three-fifths">
+        <p class="panel-heading">
+            Comments
+        </p>
+        {{#each comments as |comment|}}
+        <div class="panel-block">
+            {{comment.user.username}} on {{format_date comment.createdAt}}:
+            <br>
+            <br>
+            {{comment.content}}
         </div>
-    </div>
-    <div class="uk-card-body">
-        <p>{{comment.content}}</p>
-    </div>
+        {{/each}}
+    </article>
 </div>
-{{/each}}
 
 
 <!-- Display add comment form if user is logged in -->
 
 {{#if logged_in}}
-<div
-    class="uk-flex uk-flex-around uk-width-auto uk-margin-large-top uk-margin-bottom-large uk-margin-large-left uk-margin-large-right">
-    <div class="uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1">
-        <h3> Add a Comment </h3>
-
-        <form id="new-comment-form" class="uk-width-1-2">
-
-            <div class="uk-margin">
-                <textarea class="uk-textarea" rows="5" placeholder="Content" id="comment-content"
-                    data-post_id="{{post.id}}"></textarea>
+<div class="columns is-centered mt-5">
+    <article class="panel is-info column is-three-fifths">
+        <p class="panel-heading">
+            Add a Comment
+        </p>
+        <form id="new-comment-form">
+            <div class="field mt-5">
+                <div class="control">
+                    <textarea class="textarea" placeholder="Enter comment here" id="comment-content"
+                        data-post_id="{{post.id}}"></textarea>
+                </div>
             </div>
-
-            <div class="uk-margin">
-                <button class="uk-button uk-button-primary" type="submit">Create Comment</button>
+            <div class="field">
+                <p class="control">
+                    <button class="button is-info" type="submit" id="new-comment-button">
+                        Add Comment
+                    </button>
+                </p>
             </div>
-
         </form>
-    </div>
+    </article>
 </div>
 {{/if}}
 
