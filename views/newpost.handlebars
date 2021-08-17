@@ -1,29 +1,35 @@
 <!-- New Post Form -->
 
-<div
-    class="uk-flex uk-flex-around uk-width-auto uk-margin-large-top uk-margin-bottom-large uk-margin-large-left uk-margin-large-right">
-    <div class="uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1">
-        <h2> Create a New Post </h2>
-
-        <form id="new-post-form" class="uk-width-1-2">
-
-            <div class="uk-margin">
-                <label class="uk-form-label uk-text-center">Post Title</label>
-                <input class="uk-input" type="text" placeholder="Title" id="post-title">
+<div class="columns is-centered mt-5">
+    <article class="panel is-info column is-three-fifths">
+        <p class="panel-heading">
+            Create New Post
+        </p>
+        <form id="new-post-form">
+            <div class="field mt-5">
+                <label class="label">Post Title</label>
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Title" id="post-title">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-book-reader"></i>
+                    </span>
+                </p>
             </div>
-
-            <div class="uk-margin">
-                <label class="uk-form-label uk-text-center">Post Content</label>
-                <textarea class="uk-textarea" rows="5" placeholder="Content" id="post-content"></textarea>
+            <div class="field">
+                <label class="label">Post Content</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Enter content here" id="post-content"></textarea>
+                </div>
             </div>
-
-            <div class="uk-margin">
-                <button class="uk-button uk-button-primary" type="submit">Create Post</button>
+            <div class="field">
+                <p class="control">
+                    <button class="button is-info" type="submit" id="new-post-button">
+                        Create Post
+                    </button>
+                </p>
             </div>
-
         </form>
-        
-    </div>
+    </article>
 </div>
 
 

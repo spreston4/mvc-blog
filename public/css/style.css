@@ -2,3 +2,14 @@
 .text-white {
     color: white;
 }
+
+.flex-row-between {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}

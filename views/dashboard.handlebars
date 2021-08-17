@@ -1,34 +1,17 @@
 <!-- Display User Dashboard -->
 
-<div class="uk-container-large uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1">
-
-
-    <!-- Creat a New Post Section -->
-
-    <div class="uk-width-1-2">
-        <div "uk-width-1-1">
-            <h2 class="uk-heading-medium uk-text-center">Create a new post</h2>
+<div class="columns is-centered mt-5">
+            <article class="panel is-info column is-three-fifths">
+                <p class="panel-heading">
+                    My Posts
+                </p>
+                {{#each posts as |post|}}
+                <a class="panel-block is-active" data-post_id="{{post.id}}" href="/api/posts/editpost/{{post.id}}">
+                    {{post.title}} | {{format_date post.createdAt}}
+                </a>
+                {{/each}}
+                <div class="control mt-3 mb-0 is-centered columns is-centered">
+                    <a class="button is-info" href="/newpost">Create New Post</a>
+                </div>
+            </article>
         </div>
-        <div class="uk-margin-large">
-            <a href="/newpost"><button class="uk-button uk-button-primary uk-width-1-1 uk-margin">New Post</button></a>
-        </div>
-    </div>
-
-
-    <!-- Display User Post Buttons -->
-
-    <div class="uk-width-1-2">
-        <div class="uk-width-1-1">
-            <h2 class="uk-heading-medium uk-text-center">Your Posts</h2>
-        </div>
-        <div class="uk-margin-large">
-
-            {{#each posts as |post|}}
-            <a href="/api/posts/editpost/{{post.id}}"><button class="uk-button uk-button-primary uk-width-1-1 uk-margin"
-                    data-post_id="{{post.id}}">{{post.title}} | {{format_date post.createdAt}}</button></a>
-            {{/each}}
-
-        </div>
-    </div>
-
-</div>

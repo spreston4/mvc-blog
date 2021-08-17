@@ -5,49 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
-    <title>The MVC Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>MVC Blog</title>
 </head>
 
-<body class="uk-background-muted">
-
-    <header class="uk-background-primary">
-        <h1 class="uk-heading-large uk-text-center uk-padding-large text-white">The MVC Blog</h1>
-        <nav class="uk-navbar-container " uk-navbar>
-            <div class="uk-navbar-left uk-padding">
-                <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="/"><span class="uk-text-large">Home</span></a></li>
-                    <li class="uk-active"><a href="/dashboard"><span class="uk-text-large">Dashboard</span></a>
-                </ul>
+<body>
+    <header>
+        <!-- Title -->
+        <section class="hero is-info">
+            <div class="hero-body">
+                <p class="title">MVC Blog</p>
+                <p class="subtitle">Blog away...</p>
             </div>
-            <div class="uk-navbar-right uk-padding">
-                <ul class="uk-navbar-nav">
-                    {{#if logged_in}}
-                    <li class="uk-active"><a href="#" id="logout"><span class="uk-text-large">Logout</span></a></li>
-                    {{else}}
-                    <li class="uk-active"><a href="/login"><span class="uk-text-large" id="">Login</span></a></li>
-                    {{/if}}
-                </ul>
+        </section>
+
+        <!-- NAV BAR -->
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="/">Home</a>
+                    <a class="navbar-item" href="/dashboard">Dashboard</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {{#if logged_in}}
+                            <a class="button is-dark" href="#" id="logout">Log out</a>
+                            {{else}}
+                            <a class="button is-dark" href="/login">Login</a>
+                            <a class="button is-light" href="/signup">Sign Up</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
+
     </header>
 
     <main>
         {{{ body }}}
     </main>
 
-    <footer class="uk-background-primary uk-padding-small uk-margin-large-top uk-margin-remove-bottom">
-        <p class="uk-text-center text-white">© Sam Preston</p>
-
+    <footer class="footer mt-6">
+        <div class="content has-text-centered">
+            <p>
+                <strong>MVC Blog</strong> brought to you by <a href="https://github.com/spreston4">Sam Preston</a>.
+            </p>
+        </div>
     </footer>
 
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
-
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
 </body>
 
 </html>
