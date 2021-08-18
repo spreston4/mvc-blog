@@ -25,25 +25,26 @@ Built in Visual Studio with:
 
 When the application loads, the user is presented with the home page. From the homepage, the user can view the nav bar and the titles of existing blog posts. Clicking the title of an existing blog post will allow the user to view the post contents and any comments on the post. Before the user logs in, selecting 'Dashboard' or 'Login' will direct the user to the login page.
 
-![Home](./public/images/home.PNG)
+![Home](./public/images/home1.PNG)
 
 Selecting 'Login' will direct the user to the login page where they can sign in with existing credentials. If the user does not have an existing account they can select the option to create a new account by clicking the link below the login form. Creating a new account will automatically log the user into the new account.
 
-![Login](./public/images/login.PNG)
+![Login](./public/images/login1.PNG)
 
-![Signup](./public/images/signup.PNG)
+![Signup](./public/images/signup1.PNG)
 
 Once logged in, users can view their dashboard. From the dashboard users have the option to create a new post, or edit an existing post. Users can also delete posts from the edit post page.
 
-![Dashboard](./public/images/dashboard.PNG)
+![Dashboard](./public/images/dashboard1.PNG)
 
-![New Post](./public/images/newpost.PNG)
+![New Post](./public/images/newpost1.PNG)
 
-![Edit Post](./public/images/editpost.PNG)
+![Edit Post](./public/images/editpost1.PNG)
 
 All users can view posts and post comments by click a post title from the home page. However, only users that are logged in will have the option to add a comment.
 
-![Post](./public/images/post.PNG)
+![Post](./public/images/post1.PNG)
+![Comment](./public/images/comment1.PNG)
 
 
 ## User Story
