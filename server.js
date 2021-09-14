@@ -5,6 +5,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const compression = require('compression')
 
 // Require packages
 const routes = require('./controllers');
@@ -27,6 +28,7 @@ const sess = {
 
 app.use(cookieParser());                   // Used to enable cookie maxAge
 app.use(session(sess));
+app.use(compression());
 
 // Configure helpers for use by habdlebar templates
 const hbs = exphbs.create({ helpers });
